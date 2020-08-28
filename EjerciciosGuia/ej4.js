@@ -3,9 +3,7 @@
 algunoEsPar([1,2,3])
 > true*/
 
-
-
-function numeroPar(element, array) 
+function numeroPar(element) 
 {
     return element % 2 === 0;     
 }
