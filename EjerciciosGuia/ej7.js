@@ -3,10 +3,14 @@
 hayAlgunNegativo([2,-3,9])
 > True*/
 
+var arr1 = [-1, 8,-5,2, -3, 9];
+var arr2 = [9, 6, 2, 1, 6, 8];  
+
 function hayAlgunNegativo(numeros)
 {
-    return numeros < 0;
+   var valor = numeros.some(i => i < 0);
+   return valor;
 }
 
-console.log([-1, 8,-5,2, -3, 9].some(hayAlgunNegativo)); //true
-console.log([9, 6, 2, 1, 6, 8].some(hayAlgunNegativo)); //false
+console.log(hayAlgunNegativo(arr1)); //true
+console.log(hayAlgunNegativo(arr2)); //false
