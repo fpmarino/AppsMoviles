@@ -5,62 +5,67 @@ responsable de manejar de agregar al objeto profesor como profesor del estudiant
 
 class Persona 
 {
-    constructor(nombre,edad){
+    constructor(nombre, edad)
+    {
         this.nombre = nombre;
         this.edad = edad;
     }
-    presentarse() {
-        console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`)
+    presentarse() 
+    {
+        console.log("Mi nombre es "+this.nombre+" y tengo "+this.edad+ " años.")
     }
 }
 
-class Estudiante extends Persona{
-    constructor(nombre,edad,profesor=undefined){
+class Estudiante extends Persona
+{
+    constructor(nombre, edad, profesor=null)
+    {
         super(nombre,edad); 
         this.profesor = profesor;
     }
-    setProfesor(profesor) {
+    setProfesor(profesor) 
+    {
         this.profesor = profesor;
     }
-    estudiando() {
-        if(this.profesor !== undefined) {
-            console.log(`${this.nombre}: Estudiando con ${this.profesor.nombre}`);
-        }
-        else {
-            console.log(`${this.nombre}: No tengo profesor aún!`);
+    estudiando()
+    {
+        if(this.profesor !== null) 
+        {
+            console.log("Estudiando con "+this.profesor.nombre);
         }
     }
 }
 
-class Profesor extends Persona{
-    constructor(nombre,edad){
+class Profesor extends Persona
+{
+    constructor(nombre, edad)
+    {
         super(nombre,edad);
         this.estudiantes = [];
     }
-    enseñando() {
-        if(this.estudiantes.length>0){
-            console.log("Este es el listado de mis alumnos: ");
+    enseñando() 
+    {
+        if(this.estudiantes.length>0)
+        {
+            console.log("Alumnos: ");
             this.estudiantes.forEach(estudiante => console.log(estudiante.nombre)); 
         }
-        else{
-            console.log("No tengo alumnos!");
-        }
     }
-    addEstudiante(unEstudiante){
+    addEstudiante(unEstudiante)
+    {
         this.estudiantes.push(unEstudiante);
         unEstudiante.setProfesor(this);
     }
 }
-alumno1 = new Estudiante("David",21);
-alumno2 = new Estudiante("Juan",25);
-alumno3 = new Estudiante("Maxi",34);
 
-profesor1 = new Profesor("Jorge",40);
-profesor1.addEstudiante(alumno1);
-profesor1.addEstudiante(alumno2);
-profesor1.addEstudiante(alumno3);
+e1 = new Estudiante("Florencia", 23);
+e2 = new Estudiante("Sergio", 32);
 
-profesor1.enseñando();
-alumno1.estudiando();
-alumno2.estudiando();
-alumno3.estudiando();
+
+p1 = new Profesor("Misael", 34);
+p1.addEstudiante(e1);
+p1.addEstudiante(e2);
+
+
+p1.enseñando();
+e1.estudiando();
