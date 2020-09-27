@@ -1,4 +1,3 @@
-  
 
 const obtenerChiste = require("./library");
 

@@ -1,10 +1,12 @@
 const https = require("https");
 
-var url = "https://randomuser.me/api/?format=json";
+var url = "https://pokeapi.co/api/v2/pokemon/";
 
-function obtenerPersonaFake(callback){
+function obtenerPokemon(nombrePokemon, callback){
 
-    https.get(url, (resp) => {
+    let urlPokemon = url + nombrePokemon;
+
+    https.get(urlPokemon, (resp) => {
 
         let data = "";
 
@@ -22,4 +24,4 @@ function obtenerPersonaFake(callback){
 
 }
 
-module.exports = obtenerPersonaFake;
+module.exports = obtenerPokemon;
