@@ -4,19 +4,19 @@ const obtenerPersonaFake = require("./library");
 // Codigo funcion callback
 
 function datosPersona(p){
-    let persona = p.results[0];
-    let nombre = persona.name;
-    let localidad = persona.location;
-    let user = persona.login;
-    console.log(
-    `
-    Nombre: ${nombre.first} ${nombre.last}
-    Genero: ${persona.gender==="male"?"Masculino":"Femenino"}
-    Pais: ${localidad.country}, Estado: ${localidad.state}, Ciudad: ${localidad.city}, Calle: ${localidad.street.name}, Nro: ${localidad.street.number}, CP: ${localidad.postcode}                
-    Email: ${persona.email}
-    Nombre de usuario: ${user.username}
-    Password: ${user.password}
-    `);
+    p.results.forEach(persona => {
+
+        console.log("Nombre: " + persona.name.first + " " + persona.name.last);
+        console.log("Sexo: " + persona.gender);
+        console.log("Pais: " + persona.location.country);
+        console.log("Estado: " + persona.location.state);
+        console.log("Calle: " + persona.location.street.name);
+        console.log("Numero: " + persona.location.street.number);
+        console.log("CP: " + persona.location.postcode);
+        console.log("Email: " + persona.email);
+        console.log("Usuario: " + persona.login.username);
+        console.log("Contraseña: " + persona.login.password);
+})
 }
 
 // Fin codigo
