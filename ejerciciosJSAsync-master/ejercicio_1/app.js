@@ -11,3 +11,4 @@ function chisteExtraido(chiste){
 
 // Usar la funcion obtenerChiste(funcionCallback) en donde funcionCallback es una función que recibe el objeto chiste extraido
 obtenerChiste(chisteExtraido);
+
