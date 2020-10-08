@@ -1,11 +1,16 @@
-const request = require('request-promise');
+const request = require("request-promise");
 
 
-function request (section, timeperiod){
-    var options = {
-        url: "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/{section}/{time-period}.json" + method + ".php",
+
+var options = {
+        uri: "https://api.openbrewerydb.org/breweries",
         json: true
-    }
-
 }
 
+
+
+function obtenerCerveceria(){
+    return rp(options);
+}
+
+module.exports = obtenerCerveceria;
